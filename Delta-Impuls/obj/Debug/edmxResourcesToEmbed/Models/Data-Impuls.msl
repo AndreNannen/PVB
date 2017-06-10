@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="category">
+      <EntityTypeMapping TypeName="Model.category">
+        <MappingFragment StoreEntitySet="category">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="category_name" ColumnName="category_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lj">
+      <EntityTypeMapping TypeName="Model.lj">
+        <MappingFragment StoreEntitySet="lj">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="lj1" ColumnName="lj" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="location">
+      <EntityTypeMapping TypeName="Model.location">
+        <MappingFragment StoreEntitySet="location">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="city" ColumnName="city" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ls">
+      <EntityTypeMapping TypeName="Model.ls">
+        <MappingFragment StoreEntitySet="ls">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ls1" ColumnName="ls" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="member">
+      <EntityTypeMapping TypeName="Model.member">
+        <MappingFragment StoreEntitySet="member">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="bondsnr" ColumnName="bondsnr" />
+          <ScalarProperty Name="cg" ColumnName="cg" />
+          <ScalarProperty Name="para_tt" ColumnName="para-tt" />
+          <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="insertion" ColumnName="insertion" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="phonenumber" ColumnName="phonenumber" />
+          <ScalarProperty Name="mobilenumber" ColumnName="mobilenumber" />
+          <ScalarProperty Name="e_mail" ColumnName="e-mail" />
+          <ScalarProperty Name="location_ID" ColumnName="location_ID" />
+          <ScalarProperty Name="category_ID" ColumnName="category_ID" />
+          <ScalarProperty Name="ls_ID" ColumnName="ls_ID" />
+          <ScalarProperty Name="lj_ID" ColumnName="lj_ID" />
+          <ScalarProperty Name="membersince" ColumnName="membersince" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="Model.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="e_mail" ColumnName="e-mail" />
+          <ScalarProperty Name="password_hash" ColumnName="password_hash" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

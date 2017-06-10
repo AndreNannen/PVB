@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="category_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="member" Relationship="Self.FK_member_category" FromRole="category" ToRole="member" />
+  </EntityType>
+  <EntityType Name="lj">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="lj1" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="member" Relationship="Self.FK_member_lj" FromRole="lj" ToRole="member" />
+  </EntityType>
+  <EntityType Name="location">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="city" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="member" Relationship="Self.FK_member_location" FromRole="location" ToRole="member" />
+  </EntityType>
+  <EntityType Name="ls">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="ls1" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="member" Relationship="Self.FK_member_ls" FromRole="ls" ToRole="member" />
+  </EntityType>
+  <EntityType Name="member">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="bondsnr" Type="Int32" Nullable="false" />
+    <Property Name="cg" Type="Boolean" Nullable="false" />
+    <Property Name="para_tt" Type="Boolean" Nullable="false" />
+    <Property Name="birthdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="gender" Type="Boolean" Nullable="false" />
+    <Property Name="firstname" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="insertion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="lastname" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="zipcode" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="city" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="phonenumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="mobilenumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="e_mail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="location_ID" Type="Int32" Nullable="false" />
+    <Property Name="category_ID" Type="Int32" Nullable="false" />
+    <Property Name="ls_ID" Type="Int32" Nullable="false" />
+    <Property Name="lj_ID" Type="Int32" Nullable="false" />
+    <Property Name="membersince" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="category" Relationship="Self.FK_member_category" FromRole="member" ToRole="category" />
+    <NavigationProperty Name="lj" Relationship="Self.FK_member_lj" FromRole="member" ToRole="lj" />
+    <NavigationProperty Name="location" Relationship="Self.FK_member_location" FromRole="member" ToRole="location" />
+    <NavigationProperty Name="ls" Relationship="Self.FK_member_ls" FromRole="member" ToRole="ls" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="e_mail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password_hash" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_member_category">
+    <End Role="category" Type="Self.category" Multiplicity="1" />
+    <End Role="member" Type="Self.member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="member">
+        <PropertyRef Name="category_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_member_lj">
+    <End Role="lj" Type="Self.lj" Multiplicity="1" />
+    <End Role="member" Type="Self.member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lj">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="member">
+        <PropertyRef Name="lj_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_member_location">
+    <End Role="location" Type="Self.location" Multiplicity="1" />
+    <End Role="member" Type="Self.member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="location">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="member">
+        <PropertyRef Name="location_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_member_ls">
+    <End Role="ls" Type="Self.ls" Multiplicity="1" />
+    <End Role="member" Type="Self.member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ls">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="member">
+        <PropertyRef Name="ls_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="category" EntityType="Self.category" />
+    <EntitySet Name="lj" EntityType="Self.lj" />
+    <EntitySet Name="location" EntityType="Self.location" />
+    <EntitySet Name="ls" EntityType="Self.ls" />
+    <EntitySet Name="member" EntityType="Self.member" />
+    <EntitySet Name="user" EntityType="Self.user" />
+    <AssociationSet Name="FK_member_category" Association="Self.FK_member_category">
+      <End Role="category" EntitySet="category" />
+      <End Role="member" EntitySet="member" />
+    </AssociationSet>
+    <AssociationSet Name="FK_member_lj" Association="Self.FK_member_lj">
+      <End Role="lj" EntitySet="lj" />
+      <End Role="member" EntitySet="member" />
+    </AssociationSet>
+    <AssociationSet Name="FK_member_location" Association="Self.FK_member_location">
+      <End Role="location" EntitySet="location" />
+      <End Role="member" EntitySet="member" />
+    </AssociationSet>
+    <AssociationSet Name="FK_member_ls" Association="Self.FK_member_ls">
+      <End Role="ls" EntitySet="ls" />
+      <End Role="member" EntitySet="member" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

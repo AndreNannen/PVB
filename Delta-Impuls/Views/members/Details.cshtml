@@ -1,0 +1,170 @@
+﻿@model Delta_Impuls.Models.member
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>member</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.bondsnr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bondsnr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.para_tt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.para_tt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.birthdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.birthdate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.firstname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.insertion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.insertion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.zipcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.zipcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.city)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.city)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phonenumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phonenumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mobilenumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mobilenumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.e_mail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.e_mail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.membersince)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.membersince)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.category.category_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.category.category_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lj.lj1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lj.lj1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.location.city)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.location.city)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ls.ls1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ls.ls1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

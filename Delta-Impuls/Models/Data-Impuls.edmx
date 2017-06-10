@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="category_name" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="lj">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="lj" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="location">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="35" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ls">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ls" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="member">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="bondsnr" Type="int" Nullable="false" />
+          <Property Name="cg" Type="bit" Nullable="false" />
+          <Property Name="para-tt" Type="bit" Nullable="false" />
+          <Property Name="birthdate" Type="datetime" Nullable="false" />
+          <Property Name="gender" Type="bit" Nullable="false" />
+          <Property Name="firstname" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="insertion" Type="varchar" MaxLength="45" />
+          <Property Name="lastname" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="zipcode" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="phonenumber" Type="varchar" MaxLength="20" />
+          <Property Name="mobilenumber" Type="varchar" MaxLength="20" />
+          <Property Name="e-mail" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="location_ID" Type="int" Nullable="false" />
+          <Property Name="category_ID" Type="int" Nullable="false" />
+          <Property Name="ls_ID" Type="int" Nullable="false" />
+          <Property Name="lj_ID" Type="int" Nullable="false" />
+          <Property Name="membersince" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="e-mail" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="password_hash" Type="varchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_member_category">
+          <End Role="category" Type="Self.category" Multiplicity="1" />
+          <End Role="member" Type="Self.member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="member">
+              <PropertyRef Name="category_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_member_lj">
+          <End Role="lj" Type="Self.lj" Multiplicity="1" />
+          <End Role="member" Type="Self.member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lj">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="member">
+              <PropertyRef Name="lj_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_member_location">
+          <End Role="location" Type="Self.location" Multiplicity="1" />
+          <End Role="member" Type="Self.member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="location">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="member">
+              <PropertyRef Name="location_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_member_ls">
+          <End Role="ls" Type="Self.ls" Multiplicity="1" />
+          <End Role="member" Type="Self.member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ls">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="member">
+              <PropertyRef Name="ls_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="category" EntityType="Self.category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lj" EntityType="Self.lj" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="location" EntityType="Self.location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ls" EntityType="Self.ls" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="member" EntityType="Self.member" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_member_category" Association="Self.FK_member_category">
+            <End Role="category" EntitySet="category" />
+            <End Role="member" EntitySet="member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_member_lj" Association="Self.FK_member_lj">
+            <End Role="lj" EntitySet="lj" />
+            <End Role="member" EntitySet="member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_member_location" Association="Self.FK_member_location">
+            <End Role="location" EntitySet="location" />
+            <End Role="member" EntitySet="member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_member_ls" Association="Self.FK_member_ls">
+            <End Role="ls" EntitySet="ls" />
+            <End Role="member" EntitySet="member" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="category_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="member" Relationship="Self.FK_member_category" FromRole="category" ToRole="member" />
+        </EntityType>
+        <EntityType Name="lj">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="lj1" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="member" Relationship="Self.FK_member_lj" FromRole="lj" ToRole="member" />
+        </EntityType>
+        <EntityType Name="location">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="member" Relationship="Self.FK_member_location" FromRole="location" ToRole="member" />
+        </EntityType>
+        <EntityType Name="ls">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ls1" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="member" Relationship="Self.FK_member_ls" FromRole="ls" ToRole="member" />
+        </EntityType>
+        <EntityType Name="member">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="bondsnr" Type="Int32" Nullable="false" />
+          <Property Name="cg" Type="Boolean" Nullable="false" />
+          <Property Name="para_tt" Type="Boolean" Nullable="false" />
+          <Property Name="birthdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="gender" Type="Boolean" Nullable="false" />
+          <Property Name="firstname" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="insertion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="lastname" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="zipcode" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phonenumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="mobilenumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="e_mail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="location_ID" Type="Int32" Nullable="false" />
+          <Property Name="category_ID" Type="Int32" Nullable="false" />
+          <Property Name="ls_ID" Type="Int32" Nullable="false" />
+          <Property Name="lj_ID" Type="Int32" Nullable="false" />
+          <Property Name="membersince" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="category" Relationship="Self.FK_member_category" FromRole="member" ToRole="category" />
+          <NavigationProperty Name="lj" Relationship="Self.FK_member_lj" FromRole="member" ToRole="lj" />
+          <NavigationProperty Name="location" Relationship="Self.FK_member_location" FromRole="member" ToRole="location" />
+          <NavigationProperty Name="ls" Relationship="Self.FK_member_ls" FromRole="member" ToRole="ls" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="e_mail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password_hash" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_member_category">
+          <End Role="category" Type="Self.category" Multiplicity="1" />
+          <End Role="member" Type="Self.member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="member">
+              <PropertyRef Name="category_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_member_lj">
+          <End Role="lj" Type="Self.lj" Multiplicity="1" />
+          <End Role="member" Type="Self.member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lj">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="member">
+              <PropertyRef Name="lj_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_member_location">
+          <End Role="location" Type="Self.location" Multiplicity="1" />
+          <End Role="member" Type="Self.member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="location">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="member">
+              <PropertyRef Name="location_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_member_ls">
+          <End Role="ls" Type="Self.ls" Multiplicity="1" />
+          <End Role="member" Type="Self.member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ls">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="member">
+              <PropertyRef Name="ls_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="category" EntityType="Self.category" />
+          <EntitySet Name="lj" EntityType="Self.lj" />
+          <EntitySet Name="location" EntityType="Self.location" />
+          <EntitySet Name="ls" EntityType="Self.ls" />
+          <EntitySet Name="member" EntityType="Self.member" />
+          <EntitySet Name="user" EntityType="Self.user" />
+          <AssociationSet Name="FK_member_category" Association="Self.FK_member_category">
+            <End Role="category" EntitySet="category" />
+            <End Role="member" EntitySet="member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_member_lj" Association="Self.FK_member_lj">
+            <End Role="lj" EntitySet="lj" />
+            <End Role="member" EntitySet="member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_member_location" Association="Self.FK_member_location">
+            <End Role="location" EntitySet="location" />
+            <End Role="member" EntitySet="member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_member_ls" Association="Self.FK_member_ls">
+            <End Role="ls" EntitySet="ls" />
+            <End Role="member" EntitySet="member" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="category">
+            <EntityTypeMapping TypeName="Model.category">
+              <MappingFragment StoreEntitySet="category">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="category_name" ColumnName="category_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lj">
+            <EntityTypeMapping TypeName="Model.lj">
+              <MappingFragment StoreEntitySet="lj">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="lj1" ColumnName="lj" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="location">
+            <EntityTypeMapping TypeName="Model.location">
+              <MappingFragment StoreEntitySet="location">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="city" ColumnName="city" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ls">
+            <EntityTypeMapping TypeName="Model.ls">
+              <MappingFragment StoreEntitySet="ls">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ls1" ColumnName="ls" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="member">
+            <EntityTypeMapping TypeName="Model.member">
+              <MappingFragment StoreEntitySet="member">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="bondsnr" ColumnName="bondsnr" />
+                <ScalarProperty Name="cg" ColumnName="cg" />
+                <ScalarProperty Name="para_tt" ColumnName="para-tt" />
+                <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="insertion" ColumnName="insertion" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="phonenumber" ColumnName="phonenumber" />
+                <ScalarProperty Name="mobilenumber" ColumnName="mobilenumber" />
+                <ScalarProperty Name="e_mail" ColumnName="e-mail" />
+                <ScalarProperty Name="location_ID" ColumnName="location_ID" />
+                <ScalarProperty Name="category_ID" ColumnName="category_ID" />
+                <ScalarProperty Name="ls_ID" ColumnName="ls_ID" />
+                <ScalarProperty Name="lj_ID" ColumnName="lj_ID" />
+                <ScalarProperty Name="membersince" ColumnName="membersince" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user">
+            <EntityTypeMapping TypeName="Model.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="e_mail" ColumnName="e-mail" />
+                <ScalarProperty Name="password_hash" ColumnName="password_hash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
