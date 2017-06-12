@@ -21,6 +21,14 @@ namespace Delta_Impuls.Controllers
             return View(member.ToList());
         }
 
+
+        public ActionResult License()
+        {
+           
+            
+            return View();
+        }
+
         // GET: members/Details/5
         public ActionResult Details(int? id)
         {
@@ -140,5 +148,6 @@ namespace Delta_Impuls.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }
