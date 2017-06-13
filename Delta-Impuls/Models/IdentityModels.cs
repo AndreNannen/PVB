@@ -29,5 +29,7 @@ namespace Delta_Impuls.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Delta_Impuls.Models.category> categories { get; set; }
     }
 }

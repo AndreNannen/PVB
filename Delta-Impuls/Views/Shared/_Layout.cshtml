@@ -22,11 +22,11 @@
             <!--Navbar with actionlinks-->
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Overzicht", "Index", "Members")</li>
+                    <li>@Html.ActionLink("Leden overzicht", "Index", "Members")</li>
                     <li>@Html.ActionLink("Lid toevoegen", "Create", "Members")</li>
                     <li>@Html.ActionLink("Locatie", "Index", "Locations")</li>
-                    <li>@Html.ActionLink("Licenties", "member", "Setting")</li>
-                    <li>@Html.ActionLink("Categorieën", "Categories", "Index")</li>
+                    <li>@Html.ActionLink("Licenties", "member", "")</li>
+                    <li>@Html.ActionLink("Categorieën", "Index", "categories")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
