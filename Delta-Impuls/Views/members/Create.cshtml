@@ -34,11 +34,11 @@
                  
                  @{
                         var selectListCG = new List<SelectListItem>();
-                        selectListCG.Add(new SelectListItem { Text = "Ja", Value = "True" });
                         selectListCG.Add(new SelectListItem { Text = "Nee", Value = "False" });
+                        selectListCG.Add(new SelectListItem { Text = "Ja", Value = "True" });
                     }
                               
-                    @Html.DropDownListFor(model => model.gender, selectListCG, "", new { @class = "form-control" })
+                    @Html.DropDownListFor(model => model.gender, selectListCG, new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.cg, "", new { @class = "text-danger" })
                 </div>
             </div>

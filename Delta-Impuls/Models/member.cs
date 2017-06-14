@@ -32,7 +32,7 @@ namespace Delta_Impuls.Models
         public bool gender { get; set; }
         
         [Required, DisplayName("Voornaam")]
-        [RegularExpression(@"^([a-zA-Z0-9 .&'-]+)$", ErrorMessage = "Verkeerde voornaam ingevuld")]
+        [RegularExpression(@"^([a-zA-Z0-9 .&'-]+)$", ErrorMessage = "Probeer voornaam opnieuw.")]
         public string firstname { get; set; }
         [DisplayName("Tussenvoegsel")]
         public string insertion { get; set; }
@@ -48,11 +48,11 @@ namespace Delta_Impuls.Models
         public string phonenumber { get; set; }
         [DisplayName("Mobiel")]
         public string mobilenumber { get; set; }
-        [DisplayName("E-mail")]
+        [Required, DisplayName("E-mail")]
         public string e_mail { get; set; }
-        [DisplayName("Locatie")]
+        [Required, DisplayName("Locatie")]
         public int location_ID { get; set; }
-        [DisplayName("LJ")]
+        [DisplayName("Categorie")]
         public int category_ID { get; set; }
         [Required, DisplayName("LS")]
         public int ls_ID { get; set; }
