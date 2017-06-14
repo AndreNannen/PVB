@@ -18,6 +18,7 @@ namespace Delta_Impuls.Models
     {
         public int ID { get; set; }
         [Required, DisplayName("Bondsnr.")]
+        
         public int bondsnr { get; set; }
         [Required, DisplayName("CG")]
         public bool cg { get; set; }
@@ -29,7 +30,9 @@ namespace Delta_Impuls.Models
         public System.DateTime birthdate { get; set; }
         [Required, DisplayName("Geslacht")]
         public bool gender { get; set; }
+        
         [Required, DisplayName("Voornaam")]
+        [RegularExpression(@"^([a-zA-Z0-9 .&'-]+)$", ErrorMessage = "Verkeerde voornaam ingevuld")]
         public string firstname { get; set; }
         [DisplayName("Tussenvoegsel")]
         public string insertion { get; set; }
@@ -58,7 +61,8 @@ namespace Delta_Impuls.Models
         [Required, DisplayName("Lid sinds")]
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public System.DateTime membersince { get; set; }
-    
+
+        
         public virtual category category { get; set; }
         public virtual lj lj { get; set; }
         public virtual location location { get; set; }
