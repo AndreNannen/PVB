@@ -4,35 +4,35 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="category_name" Type="varchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="lj">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="lj" Type="varchar" MaxLength="2" Nullable="false" />
   </EntityType>
   <EntityType Name="location">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="city" Type="varchar" MaxLength="35" Nullable="false" />
   </EntityType>
   <EntityType Name="ls">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ls" Type="varchar" MaxLength="2" Nullable="false" />
   </EntityType>
   <EntityType Name="member">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="bondsnr" Type="int" Nullable="false" />
     <Property Name="cg" Type="bit" Nullable="false" />
     <Property Name="para-tt" Type="bit" Nullable="false" />
@@ -53,11 +53,21 @@
     <Property Name="lj_ID" Type="int" Nullable="false" />
     <Property Name="membersince" Type="datetime" Nullable="false" />
   </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
   <EntityType Name="user">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="e-mail" Type="varchar" MaxLength="45" Nullable="false" />
     <Property Name="password_hash" Type="varchar" MaxLength="60" Nullable="false" />
   </EntityType>
@@ -115,6 +125,7 @@
     <EntitySet Name="location" EntityType="Self.location" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ls" EntityType="Self.ls" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="member" EntityType="Self.member" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_member_category" Association="Self.FK_member_category">
       <End Role="category" EntitySet="category" />

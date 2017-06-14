@@ -1,6 +1,12 @@
-﻿body {
-    padding-top: 50px;
+﻿/* Body of the application */
+body {
+    padding-top: 70px;
     padding-bottom: 20px;
+    background-color: #ececec;
+}
+
+img{
+    width: 100px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -22,3 +28,45 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.navbar-inverse {
+    background-color: #ffffff;
+    border-color: #ccc8c8;
+}
+
+.navbar-inverse a:hover {
+    background-color: #ff0000;
+    border-color: #ccc8c8;
+}
+.nav navbar-nav a:hover {
+    color: #000000 !important;
+    
+}
+
+/* Navbar-inverse hover and focus color black */
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+    color: #000000;
+    background-color: transparent;
+}
+/* Navbar-inverse hover and focus color black */
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+    color: #000000;
+    background-color: transparent;
+}
+
+.navbar-inverse .navbar-brand {
+        color: #004988;
+}
+
+.navbar-inverse .navbar-toggle {
+        border-color: #064a84;
+
+}
+
+.navbar-inverse .navbar-nav > li > a {
+        color: #004988;
+
+}
+

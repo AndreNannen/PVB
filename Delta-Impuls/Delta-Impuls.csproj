@@ -191,7 +191,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\categoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ljsController.cs" />
+    <Compile Include="Controllers\locationsController.cs" />
+    <Compile Include="Controllers\lsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\membersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -230,6 +234,9 @@
     <Compile Include="Models\member.cs">
       <DependentUpon>Data-Impuls.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>Data-Impuls.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\user.cs">
       <DependentUpon>Data-Impuls.tt</DependentUpon>
     </Compile>
@@ -239,6 +246,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\logo-delta-impuls.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -312,9 +320,25 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\members\Create.cshtml" />
     <Content Include="Views\members\Delete.cshtml" />
-    <Content Include="Views\members\Details.cshtml" />
     <Content Include="Views\members\Edit.cshtml" />
     <Content Include="Views\members\Index.cshtml" />
+    <Content Include="Views\categories\Create.cshtml" />
+    <Content Include="Views\categories\Delete.cshtml" />
+    <Content Include="Views\categories\Edit.cshtml" />
+    <Content Include="Views\categories\Index.cshtml" />
+    <Content Include="Views\ljs\Create.cshtml" />
+    <Content Include="Views\ljs\Delete.cshtml" />
+    <Content Include="Views\ljs\Edit.cshtml" />
+    <Content Include="Views\ljs\Index.cshtml" />
+    <Content Include="Views\ls\Create.cshtml" />
+    <Content Include="Views\ls\Delete.cshtml" />
+    <Content Include="Views\ls\Edit.cshtml" />
+    <Content Include="Views\ls\Index.cshtml" />
+    <Content Include="Views\locations\Create.cshtml" />
+    <Content Include="Views\locations\Delete.cshtml" />
+    <Content Include="Views\locations\Edit.cshtml" />
+    <Content Include="Views\locations\Index.cshtml" />
+    <Content Include="Views\members\License.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

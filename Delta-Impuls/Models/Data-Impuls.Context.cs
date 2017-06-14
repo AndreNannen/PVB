@@ -31,5 +31,6 @@ namespace Delta_Impuls.Models
         public virtual DbSet<ls> ls { get; set; }
         public virtual DbSet<member> member { get; set; }
         public virtual DbSet<user> user { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

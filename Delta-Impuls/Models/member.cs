@@ -11,13 +11,18 @@ namespace Delta_Impuls.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class member
     {
         public int ID { get; set; }
         public int bondsnr { get; set; }
         public bool cg { get; set; }
         public bool para_tt { get; set; }
+
+        [Required, DisplayName("Geb. Datum")]
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public System.DateTime birthdate { get; set; }
         public bool gender { get; set; }
         public string firstname { get; set; }
@@ -33,6 +38,8 @@ namespace Delta_Impuls.Models
         public int category_ID { get; set; }
         public int ls_ID { get; set; }
         public int lj_ID { get; set; }
+        [Required, DisplayName("Lid sinds")]
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public System.DateTime membersince { get; set; }
     
         public virtual category category { get; set; }

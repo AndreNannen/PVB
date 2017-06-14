@@ -14,6 +14,12 @@ namespace Delta_Impuls.Controllers
     {
         private Entities db = new Entities();
 
+        //Get: license 
+        public ActionResult License()
+        {
+            return View();
+        }
+
         // GET: members
         public ActionResult Index()
         {
@@ -21,21 +27,7 @@ namespace Delta_Impuls.Controllers
             return View(member.ToList());
         }
 
-        // GET: members/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            member member = db.member.Find(id);
-            if (member == null)
-            {
-                return HttpNotFound();
-            }
-            return View(member);
-        }
-
+     
         // GET: members/Create
         public ActionResult Create()
         {

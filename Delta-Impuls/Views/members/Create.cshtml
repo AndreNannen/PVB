@@ -1,7 +1,10 @@
 ﻿@model Delta_Impuls.Models.member
+@using System.Web.Mvc
+
+  
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Lid toevoegen";
 }
 
 <h2>Create</h2>
@@ -15,13 +18,7 @@
         <h4>member</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.ID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        
 
         <div class="form-group">
             @Html.LabelFor(model => model.bondsnr, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -30,24 +27,34 @@
                 @Html.ValidationMessageFor(model => model.bondsnr, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <!-- Defines CG label form, Solution found on: https://stackoverflow.com/questions/28553865/editor-template-for-nullable-boolean-dropdown-list-not-rendering -->
         <div class="form-group">
             @Html.LabelFor(model => model.cg, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.cg)
+                 
+                 @{
+                        var selectListCG = new List<SelectListItem>();
+                        selectListCG.Add(new SelectListItem { Text = "Ja", Value = "0" });
+                        selectListCG.Add(new SelectListItem { Text = "Nee", Value = "1" });
+                    }
+                              
+                    @Html.DropDownListFor(model => model.gender, selectListCG, "", new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.cg, "", new { @class = "text-danger" })
                 </div>
             </div>
-        </div>
+        
 
-        <div class="form-group">
+        <!-- Defines Para TT label form, Solution found on: https://stackoverflow.com/questions/28553865/editor-template-for-nullable-boolean-dropdown-list-not-rendering -->
+         <div class="form-group">
             @Html.LabelFor(model => model.para_tt, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.para_tt)
-                    @Html.ValidationMessageFor(model => model.para_tt, "", new { @class = "text-danger" })
-                </div>
+                 @{
+                        var selectListParaTT = new List<SelectListItem>();
+                        selectListParaTT.Add(new SelectListItem { Text = "Ja", Value = "0" });
+                        selectListParaTT.Add(new SelectListItem { Text = "Nee", Value = "1" });
+                    }
+                    @Html.DropDownListFor(model => model.gender, selectListParaTT, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -59,13 +66,19 @@
             </div>
         </div>
 
+        <!-- Defines gender label form, Solution found on: https://stackoverflow.com/questions/28553865/editor-template-for-nullable-boolean-dropdown-list-not-rendering -->
         <div class="form-group">
             @Html.LabelFor(model => model.gender, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.gender)
+              
+                    @{
+                        var selectListGender = new List<SelectListItem>();
+                        selectListGender.Add(new SelectListItem { Text = "Man", Value = "0" });
+                        selectListGender.Add(new SelectListItem { Text = "Vrouw", Value = "1" });
+                    }
+                    @Html.DropDownListFor(model => model.gender, selectListGender, new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
-                </div>
+                
             </div>
         </div>
 
