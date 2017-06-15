@@ -2,14 +2,25 @@
 
 @{
     ViewBag.Title = "Index";
+    int year = DateTime.Today.Year - 18;
 }
 
 <h2>Leden overzicht</h2>
 
+<h3>Aantal juniorleden: @Html.Encode(Model.Count(m => m.birthdate.Year >= year))</h3> 
+<h3>Aantal seniorleden: @Html.Encode(Model.Count(m => m.birthdate.Year <= year))</h3> 
+<br />
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @using (Html.BeginForm())
+    {
+    <p>
+        Zoek op voor- en achternaam: @Html.TextBox("searching")
+        <input type="submit" value="Zoeken" />
+    </p>
+    }
 </p>
 <table class="table">
+
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.bondsnr)
@@ -78,7 +89,17 @@
             @Html.DisplayFor(modelItem => item.bondsnr)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.cg)
+            @{
+                if (item.cg)
+                {
+                    @Html.Raw("Ja");
+
+                }
+                else
+                {
+                    @Html.Raw("Nee");
+                }
+            }
         </td>
         <td>
             <!-- If Gender is true show "Ja", Else "Nee" -->
@@ -93,8 +114,7 @@
                     @Html.Raw("Nee");
                 }
             }
-            @Html.DisplayFor(modelItem => item.para_tt)
-        </td>
+         </td>
         <td>
             @Html.DisplayFor(modelItem => item.birthdate)
         </td>
@@ -111,7 +131,7 @@
                     @Html.Raw("Vrouw");
                 }
             }
-            @*@Html.DisplayFor(modelItem => item.gender)*@
+         
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.firstname)

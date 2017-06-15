@@ -63,14 +63,6 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-  <EntityType Name="user">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="e-mail" Type="varchar" MaxLength="45" Nullable="false" />
-    <Property Name="password_hash" Type="varchar" MaxLength="60" Nullable="false" />
-  </EntityType>
   <Association Name="FK_member_category">
     <End Role="category" Type="Self.category" Multiplicity="1" />
     <End Role="member" Type="Self.member" Multiplicity="*" />
@@ -126,7 +118,6 @@
     <EntitySet Name="ls" EntityType="Self.ls" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="member" EntityType="Self.member" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_member_category" Association="Self.FK_member_category">
       <End Role="category" EntitySet="category" />
       <End Role="member" EntitySet="member" />

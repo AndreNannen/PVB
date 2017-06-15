@@ -24,7 +24,7 @@
             @Html.LabelFor(model => model.bondsnr, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.bondsnr, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.bondsnr, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.bondsnr, "", new { @class = "text-danger", @type = "number", min = "0", max = "100", step = "5" })
             </div>
         </div>
         <!-- Defines CG label form, Solution found on: https://stackoverflow.com/questions/28553865/editor-template-for-nullable-boolean-dropdown-list-not-rendering -->
@@ -163,7 +163,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.category_ID, "category_ID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.category_ID, "Categorie", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("category_ID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.category_ID, "", new { @class = "text-danger" })
@@ -171,7 +171,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ls_ID, "ls_ID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ls_ID, "LS", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("ls_ID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ls_ID, "", new { @class = "text-danger" })
@@ -179,7 +179,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.lj_ID, "lj_ID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.lj_ID, "LJ", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("lj_ID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.lj_ID, "", new { @class = "text-danger" })
@@ -203,7 +203,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Vorige", "Index")
 </div>
 
 @section Scripts {

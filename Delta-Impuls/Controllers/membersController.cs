@@ -21,13 +21,26 @@ namespace Delta_Impuls.Controllers
         }
 
         // GET: members
-        public ActionResult Index()
+        public ActionResult Index(string searching)
         {
+           
+            List<Count> count = new List<Count>();
+
+
+            var members = from s in db.member
+                          select s;
+
             var member = db.member.Include(m => m.category).Include(m => m.lj).Include(m => m.location).Include(m => m.ls);
+         
+            if (!String.IsNullOrEmpty(searching))
+            {
+                member = member.Where(s => s.firstname.Contains(searching) || s.lastname.Contains(searching)) ;
+
+            }
             return View(member.ToList());
         }
 
-     
+        
         // GET: members/Create
         public ActionResult Create()
         {

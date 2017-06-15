@@ -1,7 +1,8 @@
 ﻿/* Body of the application */
 body {
-    padding-top: 70px;
+    padding-top: 90px;
     padding-bottom: 20px;
+    padding-right: 500px;
     background-color: #ececec;
 }
 
@@ -15,10 +16,11 @@ img{
     padding-right: 15px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
+
+    /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
-.dl-horizontal dt {
+    .dl-horizontal dt {
     white-space: normal;
 }
 

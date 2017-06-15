@@ -61,14 +61,6 @@
     <NavigationProperty Name="location" Relationship="Self.FK_member_location" FromRole="member" ToRole="location" />
     <NavigationProperty Name="ls" Relationship="Self.FK_member_ls" FromRole="member" ToRole="ls" />
   </EntityType>
-  <EntityType Name="user">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="e_mail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="password_hash" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
-  </EntityType>
   <Association Name="FK_member_category">
     <End Role="category" Type="Self.category" Multiplicity="1" />
     <End Role="member" Type="Self.member" Multiplicity="*" />
@@ -123,7 +115,6 @@
     <EntitySet Name="location" EntityType="Self.location" />
     <EntitySet Name="ls" EntityType="Self.ls" />
     <EntitySet Name="member" EntityType="Self.member" />
-    <EntitySet Name="user" EntityType="Self.user" />
     <AssociationSet Name="FK_member_category" Association="Self.FK_member_category">
       <End Role="category" EntitySet="category" />
       <End Role="member" EntitySet="member" />

@@ -10,7 +10,6 @@
         <EntityTypeShape EntityType="Model.location" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.ls" Width="1.5" PointX="7" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.member" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.user" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="Model.FK_member_category" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_member_lj" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_member_location" ManuallyRouted="false" />
