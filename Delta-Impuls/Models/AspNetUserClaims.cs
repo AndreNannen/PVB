@@ -12,18 +12,13 @@ namespace Delta_Impuls.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ls
+    public partial class AspNetUserClaims
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ls()
-        {
-            this.member = new HashSet<member>();
-        }
+        public int Id { get; set; }
+        public string UserId { get; set; }
+        public string ClaimType { get; set; }
+        public string ClaimValue { get; set; }
     
-        public int ID { get; set; }
-        public string ls1 { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<member> member { get; set; }
+        public virtual AspNetUsers AspNetUsers { get; set; }
     }
 }

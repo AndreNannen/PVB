@@ -11,76 +11,32 @@ namespace Delta_Impuls.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class member
     {
         public int ID { get; set; }
-
-        [Required, DisplayName("Bondsnr.")]
         public int bondsnr { get; set; }
-
-        [Required, DisplayName("CG")]
         public bool cg { get; set; }
-
-        [Required, DisplayName("Para TT")]
         public bool para_tt { get; set; }
-
-        [Required, DisplayName("Geb. Datum")]
-        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public System.DateTime birthdate { get; set; }
-
-        [Required, DisplayName("Geslacht")]
         public bool gender { get; set; }
-
-        [Required, DisplayName("Voornaam")]
-        [RegularExpression(@"^([a-zA-Z0-9 .&'-]+)$", ErrorMessage = "Probeer voornaam opnieuw.")]
-        [StringLength(40, ErrorMessage = "Naam kan niet langer zijn dan 40 tekens.")]
         public string firstname { get; set; }
-
-        [DisplayName("Tussenvoegsel")]
         public string insertion { get; set; }
-
-        [Required, DisplayName("Achternaam")]
-        [RegularExpression(@"^([a-zA-Z0-9 .&'-]+)$", ErrorMessage = "Probeer achternaam opnieuw.")]
         public string lastname { get; set; }
-
-        [Required, DisplayName("Adres")]
         public string address { get; set; }
-
-        [Required, DisplayName("Postcode")]
         public string zipcode { get; set; }
-
-        [Required, DisplayName("Woonplaats")]
         public string city { get; set; }
-
-        [Required, DisplayName("Telefoon")]
         public string phonenumber { get; set; }
-
-        [DisplayName("Mobiel")]
         public string mobilenumber { get; set; }
-
-        [Required, DisplayName("E-mail")]
         public string e_mail { get; set; }
-
-        [Required, DisplayName("Locatie")]
         public int location_ID { get; set; }
-
-        [DisplayName("Categorie")]
         public int category_ID { get; set; }
-
-        [Required, DisplayName("LS")]
         public int ls_ID { get; set; }
-
-        [Required, DisplayName("LJ")]
         public int lj_ID { get; set; }
-
-        [Required, DisplayName("Lid sinds")]
-        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public System.DateTime membersince { get; set; }
-
-
+        public string housenumber { get; set; }
+        public string suffix { get; set; }
+    
         public virtual category category { get; set; }
         public virtual lj lj { get; set; }
         public virtual location location { get; set; }
