@@ -233,6 +233,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Data-Impuls.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\DispayNameAttribute.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\lj.cs">
       <DependentUpon>Data-Impuls.tt</DependentUpon>
@@ -282,6 +283,7 @@
     </EntityDeploy>
     <Content Include="Models\Data-Impuls.edmx.diagram">
       <DependentUpon>Data-Impuls.edmx</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -328,10 +330,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\members\Create.cshtml" />
-    <Content Include="Views\members\Delete.cshtml" />
-    <Content Include="Views\members\Edit.cshtml" />
-    <Content Include="Views\members\Index.cshtml" />
     <Content Include="Views\categories\Create.cshtml" />
     <Content Include="Views\categories\Delete.cshtml" />
     <Content Include="Views\categories\Edit.cshtml" />
@@ -348,7 +346,10 @@
     <Content Include="Views\locations\Delete.cshtml" />
     <Content Include="Views\locations\Edit.cshtml" />
     <Content Include="Views\locations\Index.cshtml" />
-    <Content Include="Views\members\License.cshtml" />
+    <Content Include="Views\members\Create.cshtml" />
+    <Content Include="Views\members\Delete.cshtml" />
+    <Content Include="Views\members\Edit.cshtml" />
+    <Content Include="Views\members\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

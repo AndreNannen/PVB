@@ -10,6 +10,7 @@ using Delta_Impuls.Models;
 
 namespace Delta_Impuls.Controllers
 {
+    [Authorize]
     public class categoriesController : Controller
     {
         private Entities db = new Entities();

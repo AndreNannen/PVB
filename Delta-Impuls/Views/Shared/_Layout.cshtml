@@ -9,9 +9,13 @@
 
 </head>
 <body>
+@if (User.Identity.IsAuthenticated)
+{
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
+
+
                 <a href="@Url.Action("Members", "Home")" class="navbar-brand">
                     <img src="~/Content/Images/logo-delta-impuls.jpg" title="Delta-Impuls"  />
                 </a>
@@ -25,15 +29,22 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Leden toevoegen", "Create", "Members")</li>
+                    <li>@Html.ActionLink("Lid toevoegen", "Create", "Members")</li>
+                    <li>@Html.ActionLink("Licenties junior", "Index", "Ljs")</li>
+                    <li>@Html.ActionLink("Licenties senior", "Index", "Ls")</li>
                     <li>@Html.ActionLink("Locaties", "Index", "Locations")</li>
-                    <li>@Html.ActionLink("Licenties", "License", "Members")</li>
                     <li>@Html.ActionLink("Categorieën", "Index", "Categories")</li>
+
+                    
+                  
+                   
                 </ul>
+                
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
+}
     <div class="container body-content">
         @RenderBody()
         <hr />

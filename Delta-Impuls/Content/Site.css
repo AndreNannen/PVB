@@ -72,3 +72,12 @@ textarea {
 
 }
 
+@media (min-width: 768px) {
+    .container > .navbar-header,
+    .container > .navbar-collapse {
+        margin-right: 0;
+        margin-left: -40px;
+    }
+}
+
+

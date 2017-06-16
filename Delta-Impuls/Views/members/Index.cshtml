@@ -1,14 +1,13 @@
 ﻿@model IEnumerable<Delta_Impuls.Models.member>
-
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Leden overzicht";
     int year = DateTime.Today.Year - 18;
 }
 
 <h2>Leden overzicht</h2>
 
-<h3>Aantal juniorleden: @Html.Encode(Model.Count(m => m.birthdate.Year >= year))</h3> 
-<h3>Aantal seniorleden: @Html.Encode(Model.Count(m => m.birthdate.Year <= year))</h3> 
+<h3>Aantal juniorleden: @Html.Encode(Model.Count(m => m.birthdate.Year >= year))</h3>
+<h3>Aantal seniorleden: @Html.Encode(Model.Count(m => m.birthdate.Year <= year))</h3>
 <br />
 <p>
     @using (Html.BeginForm())
@@ -18,9 +17,8 @@
         <input type="submit" value="Zoeken" />
     </p>
     }
-</p>
+    
 <table class="table">
-
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.bondsnr)
@@ -68,6 +66,12 @@
             @Html.DisplayNameFor(model => model.membersince)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.housenumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.suffix)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.category.category_name)
         </th>
         <th>
@@ -82,13 +86,13 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model)
-{
+@foreach (var item in Model) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.bondsnr)
         </td>
         <td>
+            <!-- If CG is true show "Ja", Else "Nee" -->
             @{
                 if (item.cg)
                 {
@@ -102,9 +106,9 @@
             }
         </td>
         <td>
-            <!-- If Gender is true show "Ja", Else "Nee" -->
+            <!-- If Para TT is true show "Ja", Else "Nee" -->
             @{
-                if (item.gender)
+                if (item.para_tt)
                 {
                     @Html.Raw("Ja");
 
@@ -114,13 +118,13 @@
                     @Html.Raw("Nee");
                 }
             }
-         </td>
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.birthdate)
         </td>
         <td>
             <!-- If Gender is true show "Man", Else "Vrouw" -->
-            @{ 
+            @{
                 if (item.gender)
                 {
                     @Html.Raw("Man");
@@ -131,7 +135,6 @@
                     @Html.Raw("Vrouw");
                 }
             }
-         
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.firstname)
@@ -164,6 +167,12 @@
             @Html.DisplayFor(modelItem => item.membersince)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.housenumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.suffix)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.category.category_name)
         </td>
         <td>
@@ -176,8 +185,8 @@
             @Html.DisplayFor(modelItem => item.ls.ls1)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Bewerk", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Verwijder", "Delete", new { id=item.ID })
         </td>
     </tr>
 }

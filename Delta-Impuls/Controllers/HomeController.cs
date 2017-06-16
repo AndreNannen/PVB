@@ -6,8 +6,10 @@ using System.Web.Mvc;
 
 namespace Delta_Impuls.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
+
         public ActionResult Index()
         {
             return View();

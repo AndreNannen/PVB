@@ -10,8 +10,10 @@ using Delta_Impuls.Models;
 
 namespace Delta_Impuls.Controllers
 {
+    [Authorize]
     public class ljsController : Controller
     {
+        
         private Entities db = new Entities();
 
         // GET: ljs

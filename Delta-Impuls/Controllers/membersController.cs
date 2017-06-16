@@ -10,6 +10,7 @@ using Delta_Impuls.Models;
 
 namespace Delta_Impuls.Controllers
 {
+    [Authorize]
     public class membersController : Controller
     {
         private Entities db = new Entities();
@@ -23,7 +24,7 @@ namespace Delta_Impuls.Controllers
         // GET: members
         public ActionResult Index(string searching)
         {
-           
+
             List<Count> count = new List<Count>();
 
 
@@ -31,16 +32,16 @@ namespace Delta_Impuls.Controllers
                           select s;
 
             var member = db.member.Include(m => m.category).Include(m => m.lj).Include(m => m.location).Include(m => m.ls);
-         
+
             if (!String.IsNullOrEmpty(searching))
             {
-                member = member.Where(s => s.firstname.Contains(searching) || s.lastname.Contains(searching)) ;
+                member = member.Where(s => s.firstname.Contains(searching) || s.lastname.Contains(searching));
 
             }
             return View(member.ToList());
         }
 
-        
+
         // GET: members/Create
         public ActionResult Create()
         {
@@ -56,7 +57,7 @@ namespace Delta_Impuls.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,bondsnr,cg,para_tt,birthdate,gender,firstname,insertion,lastname,address,zipcode,city,phonenumber,mobilenumber,e_mail,location_ID,category_ID,ls_ID,lj_ID,membersince")] member member)
+        public ActionResult Create([Bind(Include = "ID,bondsnr,cg,para_tt,birthdate,gender,firstname,insertion,lastname,address,zipcode,city,phonenumber,mobilenumber,e_mail,location_ID,category_ID,ls_ID,lj_ID,membersince,housenumber,suffix")] member member)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +97,7 @@ namespace Delta_Impuls.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,bondsnr,cg,para_tt,birthdate,gender,firstname,insertion,lastname,address,zipcode,city,phonenumber,mobilenumber,e_mail,location_ID,category_ID,ls_ID,lj_ID,membersince")] member member)
+        public ActionResult Edit([Bind(Include = "ID,bondsnr,cg,para_tt,birthdate,gender,firstname,insertion,lastname,address,zipcode,city,phonenumber,mobilenumber,e_mail,location_ID,category_ID,ls_ID,lj_ID,membersince,housenumber,suffix")] member member)
         {
             if (ModelState.IsValid)
             {
