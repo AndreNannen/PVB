@@ -13,7 +13,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="lj1" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="lj1" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="member" Relationship="Self.FK_member_lj" FromRole="lj" ToRole="member" />
   </EntityType>
   <EntityType Name="location">
@@ -29,7 +29,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="ls1" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ls1" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="member" Relationship="Self.FK_member_ls" FromRole="ls" ToRole="member" />
   </EntityType>
   <EntityType Name="member">

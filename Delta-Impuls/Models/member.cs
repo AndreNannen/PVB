@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Author: André Nannen, created the formats, validations and the database model in SSMS.
-
 namespace Delta_Impuls.Models
 {
     using System;
@@ -38,7 +36,7 @@ namespace Delta_Impuls.Models
 
         [Required, DisplayName("Voornaam")]
         [RegularExpression(@"^([a-zA-Z0-9 .&'-]+)$", ErrorMessage = "Probeer voornaam opnieuw.")]
-        [StringLength(40, ErrorMessage = "Name cannot be longer than 40 characters.")]
+        [StringLength(40, ErrorMessage = "Naam kan niet langer zijn dan 40 tekens.")]
         public string firstname { get; set; }
 
         [DisplayName("Tussenvoegsel")]
@@ -57,7 +55,7 @@ namespace Delta_Impuls.Models
         [Required, DisplayName("Woonplaats")]
         public string city { get; set; }
 
-        [DisplayName("Telefoon")]
+        [Required, DisplayName("Telefoon")]
         public string phonenumber { get; set; }
 
         [DisplayName("Mobiel")]
@@ -72,10 +70,10 @@ namespace Delta_Impuls.Models
         [DisplayName("Categorie")]
         public int category_ID { get; set; }
 
-        [DisplayName("LS")]
+        [Required, DisplayName("LS")]
         public int ls_ID { get; set; }
 
-        [DisplayName("LJ")]
+        [Required, DisplayName("LJ")]
         public int lj_ID { get; set; }
 
         [Required, DisplayName("Lid sinds")]
