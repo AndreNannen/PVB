@@ -70,6 +70,8 @@ namespace Delta_Impuls.Models
         public string phonenumber { get; set; }
 
         [DisplayName("Mobiel")]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Niet een geldig mobielenummer")]
+        [StringLength(20, MinimumLength = 8)]
         public string mobilenumber { get; set; }
 
         [Required, DisplayName("E-mail")]

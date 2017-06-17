@@ -25,7 +25,7 @@ namespace Delta_Impuls.Controllers
         public ActionResult Index(string searching)
         {
 
-            List<Count> count = new List<Count>();
+            
 
 
             var members = from s in db.member
