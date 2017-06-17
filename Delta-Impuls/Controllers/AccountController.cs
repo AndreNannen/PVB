@@ -86,7 +86,7 @@ namespace Delta_Impuls.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ModelState.AddModelError("", "Probeer het opnieuw.");
                     return View(model);
             }
         }
@@ -443,13 +443,14 @@ namespace Delta_Impuls.Controllers
             }
         }
 
+        // Redirection after login
         private ActionResult RedirectToLocal(string returnUrl)
         {
             if (Url.IsLocalUrl(returnUrl))
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Members");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

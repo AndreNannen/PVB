@@ -11,7 +11,9 @@ namespace Delta_Impuls.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class location
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,6 +23,9 @@ namespace Delta_Impuls.Models
         }
     
         public int ID { get; set; }
+
+        [Required, DisplayName("Locatie")]
+        [StringLength(35, ErrorMessage = "Locatie kan niet langer zijn dan 35 tekens.")]
         public string city { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

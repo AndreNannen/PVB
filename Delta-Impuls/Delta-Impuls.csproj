@@ -217,7 +217,6 @@
     <Compile Include="Models\category.cs">
       <DependentUpon>Data-Impuls.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Count.cs" />
     <Compile Include="Models\Data-Impuls.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

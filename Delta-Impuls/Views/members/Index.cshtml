@@ -51,6 +51,12 @@
             @Html.DisplayNameFor(model => model.zipcode)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.housenumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.suffix)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.city)
         </th>
         <th>
@@ -66,10 +72,7 @@
             @Html.DisplayNameFor(model => model.membersince)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.housenumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.suffix)
+            J/S
         </th>
         <th>
             @Html.DisplayNameFor(model => model.category.category_name)
@@ -152,6 +155,12 @@
             @Html.DisplayFor(modelItem => item.zipcode)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.housenumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.suffix)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.city)
         </td>
         <td>
@@ -167,10 +176,17 @@
             @Html.DisplayFor(modelItem => item.membersince)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.housenumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.suffix)
+            @{
+                if (item.category.category_name == "Senior")
+                {
+                    @Html.Raw("S");
+
+                }
+                else 
+                {
+                    @Html.Raw("J");
+                }
+            }
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.category.category_name)

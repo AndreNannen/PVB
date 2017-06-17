@@ -5,7 +5,7 @@
     ViewBag.Title = "Lid toevoegen";
 }
 
-<h2>Create</h2>
+<h2>Lid toevoegen</h2>
 
 @using (Html.BeginForm()) 
 {
@@ -156,7 +156,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.mobilenumber,"Mobiele nummer", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.mobilenumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.mobilenumber, new { htmlAttributes = new { @class = "form-control"} })
                 @Html.ValidationMessageFor(model => model.mobilenumber, "", new { @class = "text-danger" })
             </div>
         </div>

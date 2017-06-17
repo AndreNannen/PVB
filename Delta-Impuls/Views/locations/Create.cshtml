@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Locatie toevoegen</h2>
 
 
 @using (Html.BeginForm()) 
@@ -18,7 +18,7 @@
         
 
         <div class="form-group">
-            @Html.LabelFor(model => model.city, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.city, "Locatie", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.city, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.city, "", new { @class = "text-danger" })
@@ -34,7 +34,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Vorige", "Index")
 </div>
 
 @section Scripts {

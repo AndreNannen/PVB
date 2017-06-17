@@ -11,7 +11,9 @@ namespace Delta_Impuls.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,6 +23,9 @@ namespace Delta_Impuls.Models
         }
     
         public int ID { get; set; }
+
+        [Required, DisplayName("LJ")]
+        [StringLength(20, ErrorMessage = "Categorie kan niet langer zijn dan 20 tekens.")]
         public string category_name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
