@@ -190,3 +190,7 @@ F:\Documenten\Visual Studio 2017\Projects\Delta-Impuls\PVB\Delta-Impuls\bin\Micr
 F:\Documenten\Visual Studio 2017\Projects\Delta-Impuls\PVB\Delta-Impuls\obj\Debug\Delta-Impuls.csprojResolveAssemblyReference.cache
 F:\Documenten\Visual Studio 2017\Projects\Delta-Impuls\PVB\Delta-Impuls\obj\Debug\Delta-Impuls.dll
 F:\Documenten\Visual Studio 2017\Projects\Delta-Impuls\PVB\Delta-Impuls\obj\Debug\Delta-Impuls.pdb
+F:\Documenten\Visual Studio 2017\Projects\Delta-Impuls\PVB\Delta-Impuls\bin\PagedList.dll
+F:\Documenten\Visual Studio 2017\Projects\Delta-Impuls\PVB\Delta-Impuls\bin\PagedList.Mvc.dll
+F:\Documenten\Visual Studio 2017\Projects\Delta-Impuls\PVB\Delta-Impuls\bin\PagedList.xml
+F:\Documenten\Visual Studio 2017\Projects\Delta-Impuls\PVB\Delta-Impuls\bin\PagedList.Mvc.xml

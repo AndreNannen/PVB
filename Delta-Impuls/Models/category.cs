@@ -24,7 +24,7 @@ namespace Delta_Impuls.Models
     
         public int ID { get; set; }
 
-        [Required, DisplayName("LJ")]
+        [Required, DisplayName("Categorie")]
         [StringLength(20, ErrorMessage = "Categorie kan niet langer zijn dan 20 tekens.")]
         public string category_name { get; set; }
     

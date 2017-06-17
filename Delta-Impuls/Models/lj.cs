@@ -23,7 +23,7 @@ namespace Delta_Impuls.Models
         }
     
         public int ID { get; set; }
-        [DisplayName("LS")]
+        [DisplayName("LJ")]
         [StringLength(4, ErrorMessage = "Licentie kan niet langer zijn dan 4 tekens.")]
         public string lj1 { get; set; }
     

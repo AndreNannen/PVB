@@ -140,3 +140,7 @@ F:\Documenten\Visual Studio 2017\Projects\Delta-Impuls\PVB\Delta-Impuls.Tests\bi
 F:\Documenten\Visual Studio 2017\Projects\Delta-Impuls\PVB\Delta-Impuls.Tests\obj\Debug\Delta-Impuls.Tests.csprojResolveAssemblyReference.cache
 F:\Documenten\Visual Studio 2017\Projects\Delta-Impuls\PVB\Delta-Impuls.Tests\obj\Debug\Delta-Impuls.Tests.dll
 F:\Documenten\Visual Studio 2017\Projects\Delta-Impuls\PVB\Delta-Impuls.Tests\obj\Debug\Delta-Impuls.Tests.pdb
+F:\Documenten\Visual Studio 2017\Projects\Delta-Impuls\PVB\Delta-Impuls.Tests\bin\Debug\PagedList.dll
+F:\Documenten\Visual Studio 2017\Projects\Delta-Impuls\PVB\Delta-Impuls.Tests\bin\Debug\PagedList.Mvc.dll
+F:\Documenten\Visual Studio 2017\Projects\Delta-Impuls\PVB\Delta-Impuls.Tests\bin\Debug\PagedList.xml
+F:\Documenten\Visual Studio 2017\Projects\Delta-Impuls\PVB\Delta-Impuls.Tests\bin\Debug\PagedList.Mvc.xml

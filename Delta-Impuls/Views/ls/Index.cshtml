@@ -1,18 +1,18 @@
 ﻿@model IEnumerable<Delta_Impuls.Models.ls>
 
 @{
-    ViewBag.Title = "Categorieën";
+    ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Licenties senioren</h2>
 
 <p>
-    @Html.ActionLink("Categorie toevoegen", "Create") 
+    @Html.ActionLink("Licentie senior toevoegen", "Create") 
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ls1)
+            Licenties senioren
         </th>
         <th></th>
     </tr>
@@ -23,8 +23,8 @@
             @Html.DisplayFor(modelItem => item.ls1)
         </td>
         <td>
-            @Html.ActionLink("Bewerken", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Verwijderen", "Delete", new { id=item.ID })
+            @Html.ActionLink("Bewerk", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Verwijder", "Delete", new { id=item.ID })
         </td>
     </tr>
 }

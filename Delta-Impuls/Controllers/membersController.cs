@@ -7,7 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Delta_Impuls.Models;
-
+using PagedList;
 namespace Delta_Impuls.Controllers
 {
     [Authorize]
@@ -22,23 +22,69 @@ namespace Delta_Impuls.Controllers
         }
 
         // GET: members
-        public ActionResult Index(string searching)
+        //If string is not null or empty, search for first or lastname in table.
+
+        public ActionResult Index(string searching, int? page)
         {
 
             
 
-
             var members = from s in db.member
                           select s;
 
-            var member = db.member.Include(m => m.category).Include(m => m.lj).Include(m => m.location).Include(m => m.ls);
+            //ViewBag.CurrentSort = sortOrder;
+            //ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            //ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
 
+            //if (searching != null)
+            //{
+            //    page = 1;
+            //}
+
+            //switch (sortOrder)
+            //{
+            //    case "name_desc":
+            //        members = members.OrderByDescending(s => s.firstname);
+            //        break;
+            //    case "Date":
+            //        members = members.OrderBy(s => s.birthdate);
+            //        break;
+            //    default:
+            //        members = members.OrderBy(s => s.lastname);
+            //        break;
+            //}
+
+            var member = db.member.Include(m => m.category).Include(m => m.lj).Include(m => m.location).Include(m => m.ls);
+            //var pages = db.member.Include(m => m.category).Include(m => m.lj).Include(m => m.location).Include(m => m.ls).OrderBy(m => m.firstname);
             if (!String.IsNullOrEmpty(searching))
             {
                 member = member.Where(s => s.firstname.Contains(searching) || s.lastname.Contains(searching));
 
             }
+       
+            //if (pages != null)
+            //{
+            //    page = 1;
+            //}
+
             return View(member.ToList());
+
+            //else
+            //{
+            //    searching = currentFilter;
+            //}
+
+            //ViewBag.CurrentFilter = searching;
+
+
+            //int pageSize = 10;
+            //int pageNumber = (page ?? 1);
+
+
+            //return View(member.ToPagedList(pageNumber, pageSize));
+            //return View(member.OrderBy(m => m.firstname).ToPagedList(pageNumber, pageSize));
+
+
         }
 
 
