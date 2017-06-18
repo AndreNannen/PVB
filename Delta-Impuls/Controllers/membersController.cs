@@ -11,15 +11,14 @@ using PagedList;
 namespace Delta_Impuls.Controllers
 {
     [Authorize]
+    /// <summary>
+    /// 
+    /// </summary>
     public class membersController : Controller
     {
         private Entities db = new Entities();
-
-        //Get: license 
-        public ActionResult License()
-        {
-            return View();
-        }
+    
+       
 
         // GET: members
         //If string is not null or empty, search for first or lastname in table.
