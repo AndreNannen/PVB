@@ -2,6 +2,7 @@
 @*@model PagedList.IPagedList<Delta_Impuls.Models.member>
 @using PagedList.Mvc;
 @using PagedList;*@
+@using System.Web.Mvc 
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
     ViewBag.Title = "Leden overzicht";
@@ -134,12 +135,12 @@
             @{
                 if (item.gender)
                 {
-                    @Html.Raw("Man");
+                    @Html.Raw("Vrouw");
 
                 }
                 else
                 {
-                    @Html.Raw("Vrouw");
+                    @Html.Raw("Man");
                 }
             }
         </td>

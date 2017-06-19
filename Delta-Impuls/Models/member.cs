@@ -22,17 +22,17 @@ namespace Delta_Impuls.Models
         [Required, DisplayName("Bondsnr.")]
         public int bondsnr { get; set; }
 
-        [Required, DisplayName("CG")]
+        [DisplayName("CG")]
         public bool cg { get; set; }
 
-        [Required, DisplayName("Para TT")]
+        [DisplayName("Para TT")]
         public bool para_tt { get; set; }
 
         [Required, DisplayName("Geb. Datum")]
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public System.DateTime birthdate { get; set; }
 
-        [Required, DisplayName("Geslacht")]
+        [DisplayName("Geslacht")]
         public bool gender { get; set; }
 
         [Required, DisplayName("Voornaam")]
@@ -65,13 +65,13 @@ namespace Delta_Impuls.Models
 
         [DisplayName("Telefoon")]
         [DataType(DataType.PhoneNumber)]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Niet een geldig telefoonnummer")]
-        [StringLength(20, MinimumLength = 8)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Niet een geldig telefoonnummer, alles moet aan elkaar.")]
+        [StringLength(20, MinimumLength = 10)]
         public string phonenumber { get; set; }
 
         [DisplayName("Mobiel")]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Niet een geldig mobielenummer")]
-        [StringLength(20, MinimumLength = 8)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Niet een geldig mobielenummer, alles moet aan elkaar.")]
+        [StringLength(20, MinimumLength = 10)]
         public string mobilenumber { get; set; }
 
         [Required, DisplayName("E-mail")]

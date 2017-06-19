@@ -29,11 +29,11 @@
 
                 @{
                     var selectListCG = new List<SelectListItem>();
-                    selectListCG.Add(new SelectListItem { Text = "Nee", Value = "False" });
-                    selectListCG.Add(new SelectListItem { Text = "Ja", Value = "True" });
+                    selectListCG.Add(new SelectListItem { Text = "Nee", Value = "false" });
+                    selectListCG.Add(new SelectListItem { Text = "Ja", Value = "true" });
                 }
 
-                @Html.DropDownListFor(model => model.gender, selectListCG, new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.cg, selectListCG, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.cg, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -45,10 +45,10 @@
             <div class="col-md-10">
                 @{
                     var selectListParaTT = new List<SelectListItem>();
-                    selectListParaTT.Add(new SelectListItem { Text = "Nee", Value = "False" });
-                    selectListParaTT.Add(new SelectListItem { Text = "Ja", Value = "True" });
+                    selectListParaTT.Add(new SelectListItem { Text = "Nee", Value = "false" });
+                    selectListParaTT.Add(new SelectListItem { Text = "Ja", Value = "true" });
                 }
-                @Html.DropDownListFor(model => model.gender, selectListParaTT, new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.para_tt, selectListParaTT, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -70,8 +70,8 @@
 
                 @{
                     var selectListGender = new List<SelectListItem>();
-                    selectListGender.Add(new SelectListItem { Text = "Man", Value = "True" });
-                    selectListGender.Add(new SelectListItem { Text = "Vrouw", Value = "False" });
+                    selectListGender.Add(new SelectListItem { Text = "Man", Value = "true" });
+                    selectListGender.Add(new SelectListItem { Text = "Vrouw", Value = "false" });
                 }
                 @Html.DropDownListFor(model => model.gender, selectListGender, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
