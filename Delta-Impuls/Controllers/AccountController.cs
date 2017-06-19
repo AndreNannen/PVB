@@ -10,6 +10,12 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Delta_Impuls.Models;
 
+/// Author: Microsoft
+/// <summary>
+/// Account controller that defines the user that can login. With multiple options.
+/// </summary>
+
+
 namespace Delta_Impuls.Controllers
 {
     [Authorize]

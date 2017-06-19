@@ -8,6 +8,12 @@ using System.Web;
 using System.Web.Mvc;
 using Delta_Impuls.Models;
 
+/// Author: André Nannen
+/// <summary>
+/// License senior controller that defines the functions for the licenese senior page. Such as create, edit and delete.
+/// </summary>
+/// 
+
 namespace Delta_Impuls.Controllers
 {
     [Authorize]

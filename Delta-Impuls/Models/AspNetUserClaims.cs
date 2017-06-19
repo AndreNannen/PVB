@@ -7,6 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+/// Author: Microsoft
+/// <summary>
+/// Model that gets and sets claimtype and claimvalue. 
+/// </summary>
 namespace Delta_Impuls.Models
 {
     using System;

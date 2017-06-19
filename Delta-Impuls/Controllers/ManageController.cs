@@ -8,6 +8,11 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Delta_Impuls.Models;
 
+/// Author: Microsoft
+/// <summary>
+/// Controller that manages the password in the project. 
+/// </summary>
+
 namespace Delta_Impuls.Controllers
 {
     [Authorize]

@@ -6,7 +6,10 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
+/// Author: André Nannen
+/// <summary>
+/// Model that gets and sets the category. With validation attributes.
+/// </summary>
 namespace Delta_Impuls.Models
 {
     using System;

@@ -8,12 +8,15 @@ using System.Web;
 using System.Web.Mvc;
 using Delta_Impuls.Models;
 using PagedList;
+
+/// Author: André Nannen
+/// <summary>
+/// Member controller that defines the functions for the member page. Such as create, edit and delete.
+/// </summary>
+
 namespace Delta_Impuls.Controllers
 {
     [Authorize]
-    /// <summary>
-    /// 
-    /// </summary>
     public class membersController : Controller
     {
         private Entities db = new Entities();
@@ -22,25 +25,27 @@ namespace Delta_Impuls.Controllers
 
         // GET: members
         //If string is not null or empty, search for first or lastname in table.
+        // Searching parameter is used for the search bar in the index. 
+        // Page parameter is outcommented, not ready for usage but already in the parameters.
 
         public ActionResult Index(string searching, int? page)
         {
 
             
-
+            // Var members is set
             var members = from s in db.member
                           select s;
 
-            //ViewBag.CurrentSort = sortOrder;
+            /*/ViewBag.CurrentSort = sortOrder;
             //ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            //ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            //ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date"; */
 
-            //if (searching != null)
+            /*/if (searching != null)
             //{
             //    page = 1;
-            //}
+            //} */
 
-            //switch (sortOrder)
+            /*/switch (sortOrder)
             //{
             //    case "name_desc":
             //        members = members.OrderByDescending(s => s.firstname);
@@ -51,8 +56,9 @@ namespace Delta_Impuls.Controllers
             //    default:
             //        members = members.OrderBy(s => s.lastname);
             //        break;
-            //}
+            //} */
 
+            //Variable member, get all members with included data.
             var member = db.member.Include(m => m.category).Include(m => m.lj).Include(m => m.location).Include(m => m.ls);
             //var pages = db.member.Include(m => m.category).Include(m => m.lj).Include(m => m.location).Include(m => m.ls).OrderBy(m => m.firstname);
             if (!String.IsNullOrEmpty(searching))
@@ -61,14 +67,14 @@ namespace Delta_Impuls.Controllers
 
             }
        
-            //if (pages != null)
+            /*/if (pages != null)
             //{
             //    page = 1;
-            //}
+            //} */
 
             return View(member.ToList());
 
-            //else
+           /* //else
             //{
             //    searching = currentFilter;
             //}
@@ -81,7 +87,7 @@ namespace Delta_Impuls.Controllers
 
 
             //return View(member.ToPagedList(pageNumber, pageSize));
-            //return View(member.OrderBy(m => m.firstname).ToPagedList(pageNumber, pageSize));
+            //return View(member.OrderBy(m => m.firstname).ToPagedList(pageNumber, pageSize)); */
 
 
         }
@@ -98,6 +104,7 @@ namespace Delta_Impuls.Controllers
         }
 
         // POST: members/Create
+        // Data saved to a member and return to index.
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]

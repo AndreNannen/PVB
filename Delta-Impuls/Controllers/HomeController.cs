@@ -4,6 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+/// Author: Microsoft
+/// <summary>
+/// Standard HomeController that is defined when project is started. 
+/// </summary>
+
 namespace Delta_Impuls.Controllers
 {
     [Authorize]

@@ -8,6 +8,11 @@ using System.Web;
 using System.Web.Mvc;
 using Delta_Impuls.Models;
 
+/// Author: André Nannen
+/// <summary>
+/// Location controller that defines the functions for the location page. Such as create, edit and delete.
+/// </summary>
+
 namespace Delta_Impuls.Controllers
 {
     [Authorize]
