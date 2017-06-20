@@ -18,7 +18,9 @@
     @using (Html.BeginForm())
     {
     <p>
-        Zoek op voor- en achternaam: @Html.TextBox("searching")
+        Zoek op voor- of achternaam: @Html.TextBox("searchingName")
+        &nbsp;
+        Zoek op locatie: @Html.TextBox("searchingLocation")
         <input type="submit" value="Zoeken" />
     </p>
     }
@@ -128,7 +130,7 @@
             }
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.birthdate)
+            @Html.DisplayFor(modelItem => item.birthdate, "{0:dd/MM/yyyy}")
         </td>
         <td>
             <!-- If Gender is true show "Man", Else "Vrouw" -->
@@ -178,7 +180,7 @@
             @Html.DisplayFor(modelItem => item.e_mail)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.membersince)
+            @Html.DisplayFor(modelItem => item.membersince, "{0:dd/MM/yyyy}")
         </td>
         <td>
             @{

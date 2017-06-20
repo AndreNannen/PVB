@@ -28,7 +28,7 @@ namespace Delta_Impuls.Controllers
         // Searching parameter is used for the search bar in the index. 
         // Page parameter is outcommented, not ready for usage but already in the parameters.
 
-        public ActionResult Index(string searching, int? page)
+        public ActionResult Index(string searchingName, string searchingLocation, int? page)
         {
 
             
@@ -61,11 +61,13 @@ namespace Delta_Impuls.Controllers
             //Variable member, get all members with included data.
             var member = db.member.Include(m => m.category).Include(m => m.lj).Include(m => m.location).Include(m => m.ls);
             //var pages = db.member.Include(m => m.category).Include(m => m.lj).Include(m => m.location).Include(m => m.ls).OrderBy(m => m.firstname);
-            if (!String.IsNullOrEmpty(searching))
+            if (!String.IsNullOrEmpty(searchingName)|| !String.IsNullOrEmpty(searchingLocation))
             {
-                member = member.Where(s => s.firstname.Contains(searching) || s.lastname.Contains(searching));
+                member = member.Where(s => s.firstname.Contains(searchingName) || s.lastname.Contains(searchingName));
+                member = member.Where(s => s.location.city.Contains(searchingLocation));
 
             }
+            
        
             /*/if (pages != null)
             //{

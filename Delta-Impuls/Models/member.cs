@@ -31,49 +31,61 @@ namespace Delta_Impuls.Models
         [DisplayName("Para TT")]
         public bool para_tt { get; set; }
 
+        // Date format solution found on: https://stackoverflow.com/questions/18288675/display-datetime-value-in-dd-mm-yyyy-format-in-asp-net-mvc
         [Required, DisplayName("Geb. Datum")]
-        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime birthdate { get; set; }
 
         [DisplayName("Geslacht")]
         public bool gender { get; set; }
 
         [Required, DisplayName("Voornaam")]
-        [RegularExpression(@"^([a-zA-Z0-9 .&'-]+)$", ErrorMessage = "Probeer voornaam opnieuw.")]
-        [StringLength(40, ErrorMessage = "Naam kan niet langer zijn dan 40 tekens.")]
+        [RegularExpression(@"^([a-zA-Z''-'/s]+)$", ErrorMessage = "Probeer voornaam opnieuw.")]
+        [StringLength(45, ErrorMessage = "Naam kan niet langer zijn dan 45 tekens.")]
         public string firstname { get; set; }
 
         [DisplayName("Tussenvoegsel")]
+        [RegularExpression(@"^([a-zA-Z''-'/s]+)$", ErrorMessage = "Probeer tussenvoegsel opnieuw, alleen letters toegestaan.")]
+        [StringLength(45, ErrorMessage = "Tussenvoegsel kan niet langer zijn dan 45 tekens.")]
         public string insertion { get; set; }
 
         [Required, DisplayName("Achternaam")]
-        [RegularExpression(@"^([a-zA-Z0-9 .&'-]+)$", ErrorMessage = "Probeer achternaam opnieuw.")]
+        [RegularExpression(@"^([a-zA-Z''-'/s]+)$", ErrorMessage = "Probeer achternaam opnieuw.")]
         [StringLength(45, ErrorMessage = "Achternaam kan niet langer zijn dan 45 tekens.")]
         public string lastname { get; set; }
 
         [Required, DisplayName("Adres")]
+        [StringLength(45)]
+        [RegularExpression(@"^([a-zA-Z''-'/s]+)$", ErrorMessage = "Adres kan alleen met letters.")]
         public string address { get; set; }
 
         [Required, DisplayName("Huisnummer")]
+        [RegularExpression(@"^([a-zA-Z''-'/s]+)$", ErrorMessage = "Huisnummer kan alleen met letters.")]
+        [StringLength(5)]
         public string housenumber { get; set; }
 
         [DisplayName("Huis. toev.")]
+        [RegularExpression(@"^([a-zA-Z''-'/s]+)$", ErrorMessage = "De toevoeging kan alleen met letters.")]
+        [StringLength(5)]
         public string suffix { get; set; }
 
         [Required, DisplayName("Postcode")]
+        [RegularExpression(@"^[0-9]+[A-Z]{2}$", ErrorMessage = "Niet een geldig postcode, schrijf het aan elkaar, gebruik alleen cijfers en twee letters.")]
         public string zipcode { get; set; }
 
         [Required, DisplayName("Woonplaats")]
+        [RegularExpression(@"^([a-zA-Z''-'/s]+)$", ErrorMessage = "Woonplaats kan alleen met letters.")]
+        [StringLength(45)]
         public string city { get; set; }
 
         [DisplayName("Telefoon")]
         [DataType(DataType.PhoneNumber)]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Niet een geldig telefoonnummer, alles moet aan elkaar.")]
+        [RegularExpression(@"^[0-9''-'\s]{0,20}$", ErrorMessage = "Niet een geldig telefoonnummer, gebruik alleen cijfers en spaties.")]
         [StringLength(20, MinimumLength = 10)]
         public string phonenumber { get; set; }
 
         [DisplayName("Mobiel")]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Niet een geldig mobielenummer, alles moet aan elkaar.")]
+        [RegularExpression(@"^[0-9''-'\s]{0,20}$", ErrorMessage = "Niet een geldig mobielenummer, gebruik alleen cijfers en spaties.")]
         [StringLength(20, MinimumLength = 10)]
         public string mobilenumber { get; set; }
 
@@ -95,7 +107,7 @@ namespace Delta_Impuls.Models
         public int lj_ID { get; set; }
 
         [Required, DisplayName("Lid sinds")]
-        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime membersince { get; set; }
 
 
