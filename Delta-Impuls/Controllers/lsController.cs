@@ -117,9 +117,17 @@ namespace Delta_Impuls.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             ls ls = db.ls.Find(id);
-            db.ls.Remove(ls);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (db.member.Count(m => m.ls_ID == id) != 0)
+            {
+                return View("Error");
+
+            }
+            else
+            {
+                db.ls.Remove(ls);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
         }
 
         protected override void Dispose(bool disposing)
